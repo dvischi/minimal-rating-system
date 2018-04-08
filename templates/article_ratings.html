@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load ratings %}
+
+{% block title %}{{ article_class|title }} Ratings{% endblock title %}
+
+{% block content %}
+    <h1>{{ article_class|title }} Ratings</h1>
+    <p>Page showing the {{ article_class|lower }} ratings.</p>
+    <table class="table table-striped">
+        <thead class="thead-inverse">
+            <tr style="background-color: black; color: white;">
+                <td class="col-md-2">&nbsp;</td>
+                <td class="col-md-2">Name</td>
+                <td class="col-md-4">Description</td>
+                <td class="col-md-4">Rating</td>
+            </tr>
+        </thead>
+        <tbody>
+    {% regroup articles by date_created as article_groups_by_created %}
+    {% for article_groupe_by_created in article_groups_by_created %}
+        <tr style="background-color: rgb(100, 100, 100); color: white;">
+            <td colspan="4">{{ article_groupe_by_created.grouper|date:"D d M Y" }}</td>
+        </tr>
+    {% for article in article_groupe_by_created.list %}
+        <tr>
+            <td><img src="{{ article.image_url }}" alt="{{ article.name|title }}"></td>
+            <td>{{ article.name }}</td>
+            <td>{{ article.description }}</td>
+            <td>{% ratings article %}</td>
+        </tr>
+    {% endfor %}
+    {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

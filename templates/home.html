@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Article Ratings</h1>
+    
+    <ul>
+        <li><a href="{% url 'beer_ratings' %}">Beers</a></li>
+        <li><a href="{% url 'snack_ratings' %}">Snacks</a></li>
+    </ul>
+{% endblock content %}
