@@ -24,7 +24,7 @@
         </tr>
     {% for article in article_groupe_by_created.list %}
         <tr>
-            <td><img src="{{ article.image_url }}" alt="{{ article.name|title }}"></td>
+            <td><img src="{{ article.image_url }}" height="150" alt="{{ article.name|title }}"></td>
             <td>{{ article.name }}</td>
             <td>{{ article.description }}</td>
             <td>{% ratings article %}</td>
