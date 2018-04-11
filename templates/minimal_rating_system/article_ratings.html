@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load static %}
 {% load ratings %}
 
 {% block title %}{{ article_class|title }} Ratings{% endblock title %}
@@ -13,6 +14,7 @@
                 <td class="col-md-2">&nbsp;</td>
                 <td class="col-md-2">Name</td>
                 <td class="col-md-4">Description</td>
+                <td class="col-md-4">Country</td>
                 <td class="col-md-4">Rating</td>
             </tr>
         </thead>
@@ -20,13 +22,20 @@
     {% regroup articles by date_created as article_groups_by_created %}
     {% for article_groupe_by_created in article_groups_by_created %}
         <tr style="background-color: rgb(100, 100, 100); color: white;">
-            <td colspan="4">{{ article_groupe_by_created.grouper|date:"D d M Y" }}</td>
+            <td colspan="5">{{ article_groupe_by_created.grouper|date:"D d M Y" }}</td>
         </tr>
     {% for article in article_groupe_by_created.list %}
         <tr>
             <td><img src="{{ article.image_url }}" height="150" alt="{{ article.name|title }}"></td>
             <td>{{ article.name }}</td>
             <td>{{ article.description }}</td>
+            <td>
+                <img
+                    src="{% static '' %}/images/flags/{{ article.country }}.png"
+                    title="{{ article.country }}"
+                    alt="{{ article.country }}"
+                />
+            </td>
             <td>{% ratings article %}</td>
         </tr>
     {% endfor %}

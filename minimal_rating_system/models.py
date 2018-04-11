@@ -6,6 +6,7 @@ class Beer(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255, blank=False)
     description = models.TextField(blank=False)
+    country = models.CharField(max_length=255, blank=False)
     image_url = models.CharField(max_length=255, blank=False, default="/media/missing.png")
     date_created = models.DateTimeField(blank=False)
 
@@ -19,6 +20,7 @@ class Snack(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255, blank=False)
     description = models.TextField(blank=False)
+    country = models.CharField(max_length=255, blank=False)
     image_url = models.CharField(max_length=255, blank=False, default="/media/missing.png")
     date_created = models.DateTimeField(blank=False)
 
