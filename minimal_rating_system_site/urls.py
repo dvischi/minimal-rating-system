@@ -18,13 +18,15 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth import urls as auth_urls
-from django.views.generic.base import TemplateView
-from minimal_rating_system.views import BeerRateView, SnackRateView
+
+from minimal_rating_system import urls as minimal_rating_system_urls
+
 
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name='home.html'), name="home"),
-    url(r'^beer_ratings$', BeerRateView.as_view(), name='beer_ratings'),
-    url(r'^snack_ratings$', SnackRateView.as_view(), name='snack_ratings'),
+    #url(r'^$', TemplateView.as_view(template_name='home.html'), name="home"),
+    #url(r'^beer_ratings$', BeerRateView.as_view(), name='beer_ratings'),
+    #url(r'^snack_ratings$', SnackRateView.as_view(), name='snack_ratings'),
+    url(r'^', include(minimal_rating_system_urls)),
     url(r'^', include(auth_urls)),
     url(r'^admin/', admin.site.urls),
     url(r'^ratings/', include('star_ratings.urls', namespace='ratings')),
