@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "rating_system.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "minimal_rating_system_site.settings")
 
 application = get_wsgi_application()

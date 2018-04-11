@@ -6,7 +6,7 @@ from .models import Beer, Snack
 
 class BeerRateView(TemplateView):
     model = Beer
-    template_name = 'article_ratings.html'
+    template_name = 'minimal_rating_system/article_ratings.html'
 
     def get_context_data(self, **kwargs):
         kwargs['article_class'] = "Beer"
@@ -16,7 +16,7 @@ class BeerRateView(TemplateView):
 
 class SnackRateView(TemplateView):
     model = Snack
-    template_name = 'article_ratings.html'
+    template_name = 'minimal_rating_system/article_ratings.html'
 
     def get_context_data(self, **kwargs):
         kwargs['article_class'] = "Snack"
