@@ -7,7 +7,7 @@ class Beer(models.Model):
     name = models.CharField(max_length=255, blank=False)
     description = models.TextField(blank=False)
     country = models.CharField(max_length=255, blank=False)
-    image_url = models.CharField(max_length=255, blank=False, default="/media/missing.png")
+    image_url = models.CharField(max_length=255, blank=False, default="/static/images/missing.png")
     date_created = models.DateTimeField(blank=False)
 
     def __str__(self):
@@ -21,7 +21,7 @@ class Snack(models.Model):
     name = models.CharField(max_length=255, blank=False)
     description = models.TextField(blank=False)
     country = models.CharField(max_length=255, blank=False)
-    image_url = models.CharField(max_length=255, blank=False, default="/media/missing.png")
+    image_url = models.CharField(max_length=255, blank=False, default="/static/images/media/missing.png")
     date_created = models.DateTimeField(blank=False)
 
     def __str__(self):
